@@ -4,37 +4,39 @@ using UnityEngine;
 
 public class Activitat_03 : MonoBehaviour
 {
-    private float spaceLimits = 4.7f;
+    //We set the board limits
+    private float boardLimits = 4.7f;
+    //We set a jump distance
+    private float jumpDistance = 2.35f;
 
-    private float distance = 2.35f; //Distance between squares
+    //Next position
     private Vector3 nextPos;
 
     void Update()
     {
-        //Teleport movement
-        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y != spaceLimits)
+        //We jump to the next positions uning the arrows
+        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y != boardLimits)
         {
-            nextPos = new Vector3(transform.position.x, transform.position.y + distance, transform.position.z);
+            nextPos = new Vector3(transform.position.x, transform.position.y + jumpDistance, transform.position.z);
             transform.position = nextPos;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y != -spaceLimits)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y != -boardLimits)
         {
-            nextPos = new Vector3(transform.position.x, transform.position.y - distance, transform.position.z);
+            nextPos = new Vector3(transform.position.x, transform.position.y - jumpDistance, transform.position.z);
             transform.position = nextPos;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x != spaceLimits)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x != boardLimits)
         {
-            nextPos = new Vector3(transform.position.x + distance, transform.position.y, transform.position.z);
+            nextPos = new Vector3(transform.position.x + jumpDistance, transform.position.y, transform.position.z);
             transform.position = nextPos;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x != -spaceLimits)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x != -boardLimits)
         {
-            nextPos = new Vector3(transform.position.x - distance, transform.position.y, transform.position.z);
+            nextPos = new Vector3(transform.position.x - jumpDistance, transform.position.y, transform.position.z);
             transform.position = nextPos;
         }
-
     }
 }
